@@ -1,0 +1,410 @@
+
+   
+
+<!DOCTYPE html>
+ {% load static %}
+<html lang="en">
+
+<head>
+  <title>Pharmative &mdash; Colorlib Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'assets/fonts/icomoon/style.css'%}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/fonts/flaticon/font/flaticon.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/css/magnific-popup.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/css/jquery-ui.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css'%}">
+  <link rel="stylesheet" href="{% static 'assets/css/owl.theme.default.min.css'%}">
+
+
+  <link rel="stylesheet" href="{% static 'assets/css/aos.css'%}">
+
+  <link rel="stylesheet" href="{% static 'assets/css/style.css'%}">
+
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+
+    <div class="site-navbar py-2">
+
+      <div class="search-wrap">
+        <div class="container">
+          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+          <form action="#" method="post">
+            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+          </form>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <div class="site-logo">
+              <a href="#" class="js-logo-clone"><strong class="text-primary">Pharma</strong>tive</a>
+            </div>
+          </div>
+          <div class="main-nav d-none d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li><a href="{% url "accueil" %}">Clinique</a></li>
+                <li class="active"><a href="{% url "vendre_produit" %}">Store</a></li>
+                <li class="has-children">
+                  <a href="{% url "rapport_mensuel" %}">Home</a>
+              </ul>
+            </nav>
+          </div>
+          <div class="icons">
+            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+            <a href="#" class="icons-btn d-inline-block bag">
+              <span class="icon-shopping-bag"></span>
+              <span class="number">2</span>
+            </a>
+            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
+                class="icon-menu"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="{% url "rapport_mensuel" %}">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"<a href="{% url "rapport_mensuel" %}">>Home</a></strong></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter by Price</h3>
+            <div id="slider-range" class="border-primary"></div>
+            <input type="text" name="text" id="amount" class="form-control border-0 pl-0 bg-white" disabled="" />
+          </div>
+          <div class="col-lg-6 text-lg-right">
+            <h3 class="mb-3 h6 text-uppercase text-black d-block">Filter</h3>
+            <button type="button" class="btn btn-primary btn-md dropdown-toggle px-4" id="dropdownMenuReference"
+              data-toggle="dropdown">Reference</button>
+
+                       
+
+
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuReference">
+              <a class="dropdown-item" href="{% url "liste_vente" %}">Liste_vente</a>
+              <a class="dropdown-item" href="{% url "rapport_mensuel" %}">Rapport_Mois</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="{% url "liste_utilisateurs" %}">Utilisateurs</a>
+              <a class="dropdown-item" href="{% url "enregistrer_utilisateur" %}">Creez_un_Compte</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="site-section bg-light">
+      <div class="container">
+        <title>Vente de Produit</title>
+
+        <style>
+          
+            h2 {
+                color: #fff;
+            }
+    
+            form {
+                max-width: 400px;
+                margin: 20px auto;
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            label {
+                display: block;
+                margin-bottom: 8px;
+                color: #333;
+            }
+    
+            select, input {
+                width: 100%;
+                padding: 10px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+    
+            p {
+                margin-bottom: 15px;
+                color: #333;
+            }
+    
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+    
+            th, td {
+                padding: 12px;
+                text-align: left;
+                border: 1px solid #ddd;
+                background-color: #f2f2f2;
+                color: #333;
+            }
+    
+            th {
+                background-color: #3498db;
+                color: white;
+            }
+    
+            tbody tr:hover {
+                background-color: #e0e0e0;
+            }
+    
+            button {
+                background-color: #0074cc; /* Couleur bleue */
+                color: white;
+                padding: 10px 15px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+    
+            button:hover {
+                background-color: #005c99; /* Couleur bleue plus foncée au survol */
+            }
+            .messages {
+              list-style: none;
+              padding: 0;
+          }
+          
+          .messages li {
+              margin-bottom: 10px;
+              padding: 10px;
+              border-radius: 5px;
+          }
+          
+          .messages .error {
+              background-color: #f8d7da;
+              color: #721c24;
+          }
+          
+          .messages .success {
+              background-color: #d4edda;
+              color: #155724;
+          }
+        </style>
+    </head>
+    <body>
+        <h2>Vente de Produit</h2>
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+        {% if erreur %}
+            <p style="color: red;">{{ erreur }}</p>
+        {% endif %}
+    
+        <form method="post" action="{% url 'vendre_produit' %}">
+            {% csrf_token %}
+    
+            <label for="produit">Produit:</label>
+            <select name="produit" id="produit" required>
+                {% for produit in produits %}
+                    <option value="{{ produit.id_produit }}" data-prix="{{ produit.prix_unitaire }}">{{ produit.designation }}</option>
+                {% endfor %}
+            </select>
+    
+            <label for="quantite">Quantité à vendre:</label>
+            <input type="number" name="quantite" id="quantite" min="1" required>
+    
+            <!-- Ajout du champ pour la date de vente -->
+            <input type="hidden" name="date_vente" value="{{ timezone.now }}">
+    
+            <!-- Affichage du prix unitaire -->
+            <p>Prix unitaire: <span id="prix_unitaire"></span></p>
+    
+            <label for="prix_de_vente">Prix de vente:</label>
+            <input type="number" id="prix_de_vente" name="prix_de_vente" required>
+    
+             <center><button type="submit">Vendre</button></center>
+        </form>
+    
+        <script>
+            // Script pour mettre à jour le prix unitaire lors de la sélection du produit
+            document.getElementById('produit').addEventListener('change', function() {
+                var selectedOption = this.options[this.selectedIndex];
+                var prixUnitaire = selectedOption.getAttribute('data-prix');
+                document.getElementById('prix_unitaire').innerText = prixUnitaire;
+            });
+        </script>
+        
+    
+        <div class="row">
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <span class="onsale">Sale</span>
+            <a href="#"> <img src="{% static 'assets/images/product_01.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Bioderma</a></h3>
+            <p class="price"><del>95.00</del> &mdash; XAF55.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <a href="#"> <img src="{% static 'assets/images/product_02.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Chanca Piedra</a></h3>
+            <p class="price">XAF70.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <a href="#"> <img src="{% static 'assets/images/product_03.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Umcka Cold Care</a></h3>
+            <p class="price">XAF120.00</p>
+          </div>
+    
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+    
+            <a href="#"> <img src="{% static 'assets/images/product_04.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Cetyl Pure</a></h3>
+            <p class="price"><del>45.00</del> &mdash; XAF20.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <a href="#"> <img src="{% static 'assets/images/product_05.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">CLA Core</a></h3>
+            <p class="price">XAF38.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <span class="onsale">Sale</span>
+            <a href="#"> <img src="{% static 'assets/images/product_06.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Poo Pourri</a></h3>
+            <p class="price"><del>XAF89</del> &mdash; XAF38.00</p>
+          </div>
+
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <span class="onsale">Sale</span>
+            <a href="#"> <img src="{% static 'assets/images/product_01.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Bioderma</a></h3>
+            <p class="price"><del>95.00</del> &mdash; XAF55.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <a href="#"> <img src="{% static 'assets/images/product_02.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Chanca Piedra</a></h3>
+            <p class="price">XAF70.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <a href="#"> <img src="{% static 'assets/images/product_03.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Umcka Cold Care</a></h3>
+            <p class="price">XAF120.00</p>
+          </div>
+          
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+          
+            <a href="#"> <img src="{% static 'assets/images/product_04.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Cetyl Pure</a></h3>
+            <p class="price"><del>45.00</del> &mdash; XAF20.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <a href="#"> <img src="{% static 'assets/images/product_05.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">CLA Core</a></h3>
+            <p class="price">XAF38.00</p>
+          </div>
+          <div class="col-sm-6 col-lg-4 text-center item mb-4 item-v2">
+            <span class="onsale">Sale</span>
+            <a href="#"> <img src="{% static 'assets/images/product_06.png'%}" alt="Image"></a>
+            <h3 class="text-dark"><a href="#">Poo Pourri</a></h3>
+            <p class="price"><del>XAF89</del> &mdash; XAF38.00</p>
+          </div>
+        </div>
+        <div class="row mt-5">
+          <div class="col-md-12 text-center">
+            <div class="site-block-27">
+              <ul>
+                <li><a href="#">&lt;</a></li>
+                <li class="active"><span>1</span></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&gt;</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="site-footer bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+
+            <div class="block-7">
+              <h3 class="footer-heading mb-4">About <strong class="text-primary">Pharmative</strong></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius quae reiciendis distinctio voluptates
+                sed dolorum excepturi iure eaque, aut unde.</p>
+            </div>
+
+          </div>
+          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+            <h3 class="footer-heading mb-4">Navigation</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Supplements</a></li>
+              <li><a href="#">Vitamins</a></li>
+              <li><a href="#">Diet &amp; Nutrition</a></li>
+              <li><a href="#">Tea &amp; Coffee</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <ul class="list-unstyled">
+                <li class="address">203 Fake St. Mountain View, San Francisco, California, USA</li>
+                <li class="phone"><a href="tel://23923929210">+2 392 3929 210</a></li>
+                <li class="email">emailaddress@domain.com</li>
+              </ul>
+            </div>
+
+
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <p>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;
+              <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+              with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank"
+                class="text-primary">Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="{% static 'assets/js/jquery-3.3.1.min.js'%}"></script>
+  <script src="{% static 'assets/js/jquery-ui.js'%}"></script>
+  <script src="{% static 'assets/js/popper.min.js'%}"></script>
+  <script src="{% static 'assets/js/bootstrap.min.js'%}"></script>
+  <script src="{% static 'assets/js/owl.carousel.min.js'%}"></script>
+  <script src="{% static 'assets/js/jquery.magnific-popup.min.js'%}"></script>
+  <script src="{% static 'assets/js/aos.js'%}"></script>
+
+  <script src="{% static 'assets/js/main.js'%}"></script>
+
+</body>
+
+</html>

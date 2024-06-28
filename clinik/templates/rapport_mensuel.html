@@ -1,0 +1,58 @@
+{% extends "bases.html" %}
+
+{% block 'rapport_mensuel' %}
+
+
+<title>Afficher Rapport Mensuel</title>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 20px;
+    }
+
+    h2 {
+        text-align: center;
+        color: #007BFF;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    /* Styling pour chaque paragraphe */
+    p:nth-child(even) {
+        background-color: #f0f0f0;
+        padding: 10px;
+    }
+
+    /* Styling pour les valeurs numériques */
+    p:nth-child(odd) {
+        font-weight: bold;
+        color: #0056b3;
+    }
+
+    /* Ajouter un espace après chaque paragraphe */
+    p + p {
+        margin-top: 15px;
+    }
+</style>
+</head>
+<body>
+<h2>Rapport Mensuel</h2>
+
+<p>Mois: {{ rapport.mois }}</p>
+<p>Patients Consultés: {{ rapport.patients_consultes }}</p>
+<p>Patients Hospitalisés: {{ rapport.patients_hospitalises }}</p>
+<p>Patients Examinés: {{ rapport.patients_examines }}</p>
+<p>Montant des Ventes: {{ rapport.montant_ventes }}</p>
+<p>Bénéfice Réalisé: {{ rapport.benefice_realise }}</p>
+
+
+</body>
+
+
+
+{% endblock 'rapport_mensuel' %}
