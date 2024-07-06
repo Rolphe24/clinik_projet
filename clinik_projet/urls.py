@@ -41,7 +41,7 @@ urlpatterns = [
     path('connexion_utilisateur/', views.connexion_utilisateur, name='connexion_utilisateur'),
     path('supprimer_utilisateur/<utilisateur_id>/', views.supprimer_utilisateur, name='supprimer_utilisateur'),
     path('rapport_mensuel/', views.rapport_mensuel, name='rapport_mensuel'),
-    
+    path('deconnexion/', views.deconnexion, name='deconnexion'),
 
          
     # Ajoutez d'autres URL pour les opérations similaires

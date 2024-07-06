@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect  # POUR LES REDIRECTIONS DES PAGES
 from django.utils import timezone  # Pour obtenir la date actuelle
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db.models import Sum # pour les calculs (du bénefice )
 from datetime import datetime # pour importer la date et l'heure actuelle
@@ -16,6 +17,7 @@ def bases(request):
 
 def accueil(request):
     return render(request, 'accueil.html')
+
 def accueil1(request):
     return render(request, 'accueil1.html')
 
@@ -264,3 +266,7 @@ def rapport_mensuel(request):
 # print(rapports)   Ajoutez ceci pour voir les données dans la console
 def remerciment (request):
     return render(request, 'remerciment.html')
+
+def deconnexion(request):
+    logout(request)
+    return redirect('connexion_utilisateur') 
